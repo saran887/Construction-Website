@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Center alignment for the app */
+.App {
+  @apply text-center;
+}
+
+/* Logo size and animation */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Apply animation only if motion is not reduced */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Header section styling */
+.App-header {
+  @apply bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen text-lg;
+}
+
+/* Link styling */
+.App-link {
+  @apply text-blue-400 hover:text-blue-300 transition;
+}
+
+/* Logo spin animation */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,136 @@
+/* Projects.css */
+
+/* General container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Heading styles */
+.heading {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subHeading {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Projects List */
+.projectsList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Project Card */
+.projectCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 350px;
+  text-align: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+}
+
+.projectImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  color: #222;
+  margin: 15px;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 15px 15px;
+}
+
+/* Form Section */
+.form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formInput {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+textarea.formInput {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.submitButton {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projectsList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projectCard {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .form {
+    width: 90%;
+  }
+}
