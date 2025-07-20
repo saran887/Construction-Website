@@ -1,109 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 .container {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Hero Section */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 500px;
-  }
-  
-  .heroImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(70%);
-  }
-  
-  .heroOverlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-  }
-  
-  .heroHeading {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .heroSubHeading {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-  
-  .ctaButton {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    color: white;
-    background: #d9822b;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  .ctaButton:hover {
-    background: #b86e24;
-  }
-  
-  /* About Section */
-  .aboutSection {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .aboutSection h2 {
-    font-size: 2rem;
-    color: #d9822b;
-  }
-  
-  .learnMore {
-    color: #d9822b;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  /* Achievements */
-  .achievements {
-    text-align: center;
-    padding: 50px 0;
-    background: #f4f4f4;
-  }
-  
-  .achievementsGrid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .achievementBox {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-  }
-  
-  .achievementBox:hover {
-    transform: scale(1.05);
-  }
-  
-  .achievementBox h3 {
-    font-size: 2rem;
-    color: #d9822b;
-  }
-  
-  /* Contact Section */
-  .contactSection {
-    text-align: center;
-    padding: 50px;
-    background: #f4f4f4;
-  }
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
+  color: #232323;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, rgba(30,30,30,0.55) 0%, rgba(252, 74, 26, 0.25) 100%);
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 56px 40px 48px 40px;
+  border-radius: 32px;
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 12px 48px rgba(252, 74, 26, 0.18);
+  max-width: 700px;
+  width: 90%;
+  animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.heroHeading {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffe082;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.25), 0 2px 8px #fc4a1a;
+  margin-bottom: 22px;
+  line-height: 1.1;
+}
+
+.heroSubHeading {
+  font-size: 1.35rem;
+  margin-top: 0;
+  font-weight: 500;
+  color: #fffbe6;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 18px 48px;
+  font-size: 1.25rem;
+  color: #fff;
+  background: linear-gradient(90deg, #f7b733 0%, #fc4a1a 100%);
+  border-radius: 32px;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 4px 32px rgba(252, 74, 26, 0.18), 0 0 16px #ffe082;
+  letter-spacing: 1.5px;
+  border: none;
+  transition: 0.2s, box-shadow 0.3s;
+  filter: drop-shadow(0 0 8px #f7b733);
+  animation: fadeInUp 1.8s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.ctaButton:hover {
+  background: linear-gradient(90deg, #fc4a1a 0%, #f7b733 100%);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 48px rgba(252, 74, 26, 0.28), 0 0 32px #ffe082;
+  filter: drop-shadow(0 0 16px #f7b733);
+}
+
+/* About Section */
+.aboutSection {
+  text-align: center;
+  padding: 60px 20px 50px 20px;
+  background: #fff;
+  border-radius: 24px;
+  margin: 40px auto 0 auto;
+  max-width: 900px;
+  box-shadow: 0 4px 24px rgba(252, 74, 26, 0.07);
+}
+
+.aboutSection h2 {
+  font-size: 2.2rem;
+  color: #fc4a1a;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.learnMore {
+  color: #f7b733;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.learnMore:hover {
+  color: #fc4a1a;
+}
+
+/* Achievements */
+.achievements {
+  text-align: center;
+  padding: 60px 0 60px 0;
+  background: linear-gradient(120deg, #fffbe6 0%, #ffe0b2 100%);
+}
+
+.achievementsGrid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.achievementBox {
+  background: #fff;
+  padding: 32px 36px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(252, 74, 26, 0.10);
+  border: 2px solid #f7b733;
+  min-width: 180px;
+  margin: 12px 0;
+  transition: 0.3s;
+}
+
+.achievementBox:hover {
+  transform: scale(1.07) translateY(-4px);
+  box-shadow: 0px 12px 32px rgba(252, 74, 26, 0.18);
+  border-color: #fc4a1a;
+}
+
+.achievementBox h3 {
+  font-size: 2.4rem;
+  color: #fc4a1a;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.achievementBox p {
+  font-size: 1.1rem;
+  color: #232323;
+  font-weight: 500;
+}
+
+.statsBar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 48px;
+  background: #fff;
+  padding: 48px 0;
+  margin: -60px auto 64px auto;
+  border-radius: 32px;
+  max-width: 1200px;
+  box-shadow: 0 8px 48px rgba(252, 74, 26, 0.10);
+  position: relative;
+  z-index: 3;
+}
+
+.statBox {
+  background: #fffbe6;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(252, 74, 26, 0.10);
+  padding: 36px 44px;
+  min-width: 180px;
+  text-align: center;
+  border: 2px solid #ffe0b2;
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1.6s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.statBox h3 {
+  font-size: 2.6rem;
+  color: #fc4a1a;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px #ffe082;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.statBox p {
+  font-size: 1.18rem;
+  color: #232323;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.statBox:hover h3 {
+  color: #f7b733;
+}
+
+.sectorsSection {
+  text-align: center;
+  padding: 64px 0 44px 0;
+  background: #fff;
+  border-radius: 28px;
+  margin: 0 auto 48px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 32px rgba(252, 74, 26, 0.06);
+}
+
+.sectorsSection h2 {
+  font-size: 2.1rem;
+  color: #fc4a1a;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+.sectorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+
+.sectorCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(252, 74, 26, 0.07);
+  padding: 36px 28px;
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  border: 2px solid #ffe0b2;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.sectorCard:hover {
+  background: #fffbe6;
+  border-color: #f7b733;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(252, 74, 26, 0.13);
+}
+
+.sectorIcon {
+  font-size: 2.7rem;
+  margin-bottom: 14px;
+}
+
+.testimonialsSection {
+  text-align: center;
+  padding: 64px 0 44px 0;
+  background: #f9fafb;
+  border-radius: 28px;
+  margin: 0 auto 48px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 32px rgba(252, 74, 26, 0.06);
+}
+
+.testimonialsSection h2 {
+  font-size: 2.1rem;
+  color: #fc4a1a;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+.testimonialsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+
+.testimonialCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(252, 74, 26, 0.07);
+  padding: 36px 28px;
+  min-width: 260px;
+  max-width: 340px;
+  text-align: left;
+  border: 2px solid #ffe0b2;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonialCard:hover {
+  border-color: #f7b733;
+  box-shadow: 0 8px 32px rgba(252, 74, 26, 0.13);
+}
+
+.testimonialQuote {
+  font-size: 1.13rem;
+  color: #232323;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.testimonialAuthor {
+  font-weight: 700;
+  color: #fc4a1a;
+}
+
+.testimonialCompany {
+  font-size: 1.01rem;
+  color: #f7b733;
+  font-weight: 500;
+}
+
+.clientsSection {
+  text-align: center;
+  padding: 64px 0 44px 0;
+  background: #fff;
+  border-radius: 28px;
+  margin: 0 auto 48px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 32px rgba(252, 74, 26, 0.06);
+}
+
+.clientsSection h2 {
+  font-size: 2.1rem;
+  color: #fc4a1a;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+.clientsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+
+.clientCard {
+  background: #fffbe6;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(252, 74, 26, 0.07);
+  padding: 20px 36px;
+  min-width: 120px;
+  text-align: center;
+  border: 2px solid #ffe0b2;
+  font-weight: 700;
+  color: #232323;
+  font-size: 1.13rem;
+  transition: 0.2s;
+}
+
+.clientCard:hover {
+  background: #fff;
+  border-color: #f7b733;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(252, 74, 26, 0.13);
+}
+
+.contactSection {
+  text-align: center;
+  padding: 64px 20px;
+  background: #fff;
+  border-radius: 28px;
+  margin: 48px auto 48px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 32px rgba(252, 74, 26, 0.06);
+}
+
+.contactSection h2 {
+  font-size: 2.1rem;
+  color: #fc4a1a;
+  font-weight: 800;
+  margin-bottom: 36px;
+}
+
+.contactGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 28px;
+}
+
+.contactGrid > div {
+  background: #fffbe6;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(252, 74, 26, 0.07);
+  padding: 28px 36px;
+  min-width: 260px;
+  text-align: left;
+  border: 2px solid #ffe0b2;
+  font-size: 1.08rem;
+  color: #232323;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.contactGrid > div:hover {
+  border-color: #f7b733;
+  box-shadow: 0 8px 32px rgba(252, 74, 26, 0.13);
+}
+
+.contactGrid h4 {
+  color: #fc4a1a;
+  font-size: 1.13rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
   

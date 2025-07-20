@@ -1,46 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 .career-container {
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  input {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
+  max-width: 480px;
+  margin: 48px auto;
+  padding: 40px 32px 32px 32px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(252, 74, 26, 0.10);
+  text-align: center;
+}
+
+h2 {
+  color: #fc4a1a;
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: #232323;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"] {
+  padding: 0.9rem;
+  border: 1.5px solid #ffe0b2;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-top: 0.3rem;
+}
+
+input:focus {
+  border-color: #f7b733;
+  box-shadow: 0 0 0 2px #f7b73333;
+  outline: none;
+}
+
+button {
+  margin-top: 18px;
+  padding: 14px 0;
+  background: linear-gradient(90deg, #f7b733 0%, #fc4a1a 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 900;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(252, 74, 26, 0.10);
+  letter-spacing: 1px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #fc4a1a 0%, #f7b733 100%);
+  box-shadow: 0 4px 24px rgba(252, 74, 26, 0.18);
+}
   

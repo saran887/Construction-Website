@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const COMPANY_NAME = "BuildRight Construction";
+
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -10,7 +12,6 @@ const AuthPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isLogin ? '/api/auth/login' : '/api/auth/signup';
-
     try {
       const res = await axios.post(url, { email, password });
       setMsg(res.data.message);
@@ -20,75 +21,120 @@ const AuthPage = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <button type="submit" style={styles.button}>
-          {isLogin ? 'Login' : 'Sign Up'}
-        </button>
-      </form>
-      <p style={styles.linkText}>
-        {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
-        <span onClick={() => setIsLogin(!isLogin)} style={styles.link}>
-          {isLogin ? 'Sign Up' : 'Login'}
-        </span>
-      </p>
-      <p style={{ color: 'red' }}>{msg}</p>
+    <div style={styles.bg}>
+      <div style={styles.card}>
+        <div style={styles.logo}>{COMPANY_NAME}</div>
+        <h2 style={styles.title}>{isLogin ? 'Login' : 'Sign Up'}</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button}>
+            {isLogin ? 'Login' : 'Sign Up'}
+          </button>
+        </form>
+        <p style={styles.linkText}>
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
+          <span onClick={() => setIsLogin(!isLogin)} style={styles.link}>
+            {isLogin ? 'Sign Up' : 'Login'}
+          </span>
+        </p>
+        <p style={styles.error}>{msg}</p>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  container: {
-    width: '350px',
-    margin: '50px auto',
-    padding: '30px',
-    border: '1px solid #ccc',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+  bg: {
+    minHeight: '100vh',
+    background: 'linear-gradient(120deg, #f7b733 0%, #fc4a1a 100%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  form: {
+  card: {
+    background: '#fff',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
+    padding: '40px 32px',
+    width: '350px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px'
+    alignItems: 'center',
+    border: '1px solid #f7b733',
+  },
+  logo: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    color: '#fc4a1a',
+    marginBottom: '16px',
+    letterSpacing: '1px',
+    textShadow: '1px 1px 0 #f7b733',
+  },
+  title: {
+    color: '#333',
+    marginBottom: '20px',
+    fontWeight: 600,
+    fontSize: '1.5rem',
+  },
+  form: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
   },
   input: {
-    padding: '10px',
-    fontSize: '16px'
+    padding: '12px',
+    fontSize: '16px',
+    borderRadius: '8px',
+    border: '1px solid #ccc',
+    outline: 'none',
+    transition: 'border 0.2s',
   },
   button: {
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: 'white',
+    padding: '12px',
+    background: 'linear-gradient(90deg, #f7b733 0%, #fc4a1a 100%)',
+    color: '#fff',
+    fontWeight: 600,
     fontSize: '16px',
     border: 'none',
-    cursor: 'pointer'
+    borderRadius: '8px',
+    cursor: 'pointer',
+    marginTop: '8px',
+    boxShadow: '0 2px 8px rgba(252, 74, 26, 0.1)',
+    letterSpacing: '1px',
   },
   linkText: {
-    marginTop: '15px',
-    fontSize: '14px'
+    marginTop: '18px',
+    fontSize: '15px',
+    color: '#555',
   },
   link: {
-    color: '#007bff',
+    color: '#fc4a1a',
     cursor: 'pointer',
-    textDecoration: 'underline'
-  }
+    textDecoration: 'underline',
+    fontWeight: 500,
+  },
+  error: {
+    color: '#fc4a1a',
+    marginTop: '10px',
+    minHeight: '20px',
+    fontWeight: 500,
+  },
 };
 
 export default AuthPage;

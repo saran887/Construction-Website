@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
+const COMPANY_NAME = "BuildRight Construction";
+
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,67 +23,115 @@ const SignIn = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin} style={styles.form}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          required
-          onChange={(e) => setEmail(e.target.value)}
-          style={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          required
-          onChange={(e) => setPassword(e.target.value)}
-          style={styles.input}
-        />
-        {error && <p style={styles.error}>{error}</p>}
-        <button type="submit" style={styles.button}>Login</button>
-      </form>
-      <p style={styles.linkText}>
-        Don’t have an account? <Link to="/signup">Sign Up</Link>
-      </p>
+    <div style={styles.bg}>
+      <div style={styles.card}>
+        <div style={styles.logo}>{COMPANY_NAME}</div>
+        <h2 style={styles.title}>Login</h2>
+        <form onSubmit={handleLogin} style={styles.form}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            style={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+            style={styles.input}
+          />
+          {error && <p style={styles.error}>{error}</p>}
+          <button type="submit" style={styles.button}>Login</button>
+        </form>
+        <p style={styles.linkText}>
+          Don’t have an account? <Link to="/signup" style={styles.link}>Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  container: {
-    width: '300px',
-    margin: '60px auto',
-    padding: '20px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.2)',
-    borderRadius: '10px',
-    textAlign: 'center'
+  bg: {
+    minHeight: '100vh',
+    background: 'linear-gradient(120deg, #f7b733 0%, #fc4a1a 100%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  form: {
+  card: {
+    background: '#fff',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
+    padding: '40px 32px',
+    width: '350px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px'
+    alignItems: 'center',
+    border: '1px solid #f7b733',
+  },
+  logo: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    color: '#fc4a1a',
+    marginBottom: '16px',
+    letterSpacing: '1px',
+    textShadow: '1px 1px 0 #f7b733',
+  },
+  title: {
+    color: '#333',
+    marginBottom: '20px',
+    fontWeight: 600,
+    fontSize: '1.5rem',
+  },
+  form: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
   },
   input: {
-    padding: '10px',
-    fontSize: '16px'
+    padding: '12px',
+    fontSize: '16px',
+    borderRadius: '8px',
+    border: '1px solid #ccc',
+    outline: 'none',
+    transition: 'border 0.2s',
   },
   button: {
-    padding: '10px',
-    backgroundColor: '#333',
+    padding: '12px',
+    background: 'linear-gradient(90deg, #f7b733 0%, #fc4a1a 100%)',
     color: '#fff',
-    border: 'none',
+    fontWeight: 600,
     fontSize: '16px',
-    cursor: 'pointer'
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    marginTop: '8px',
+    boxShadow: '0 2px 8px rgba(252, 74, 26, 0.1)',
+    letterSpacing: '1px',
   },
   error: {
-    color: 'red'
+    color: '#fc4a1a',
+    marginTop: '10px',
+    minHeight: '20px',
+    fontWeight: 500,
   },
   linkText: {
-    marginTop: '15px'
-  }
+    marginTop: '18px',
+    fontSize: '15px',
+    color: '#555',
+  },
+  link: {
+    color: '#fc4a1a',
+    cursor: 'pointer',
+    textDecoration: 'underline',
+    fontWeight: 500,
+  },
 };
 
 export default SignIn;
