@@ -1,10 +1,15 @@
+
+html, body {
+  scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
 .container {
   font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
   color: #232323;
   background: #f9fafb;
-  min-height: 100vh;
+  /* min-height: 100vh; removed for Lenis compatibility */
 }
 
 /* Hero Section */
@@ -33,9 +38,14 @@
 }
 
 @media (max-width: 600px) {
+  .container {
+    background: transparent !important;
+    padding-top: 0 !important;
+  }
   .hero {
     height: 160px;
     min-height: 100px;
+    margin-top: 0 !important;
   }
   .heroImage {
     height: auto;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="96" fill="#FC4A1A"/>
+  <path d="M96 416L256 96L416 416H96Z" fill="white"/>
+  <path d="M176 416V288H336V416" stroke="#FC4A1A" stroke-width="32"/>
+  <path d="M256 96L96 416H416L256 96ZM256 96V32" stroke="white" stroke-width="32"/>
+  <text x="224" y="352" fill="#FC4A1A" font-family="Arial" font-weight="bold" font-size="128">P</text>
+</svg>

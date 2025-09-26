@@ -161,9 +161,10 @@ nav a:not(:last-child) {
 /* --- Mobile Styles --- */
 @media (max-width: 768px) {
   nav {
-    background-color: rgba(34, 34, 34, 0.98);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(34, 34, 34, 0.18) !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
     width: 100vw;
     left: 0;
     right: 0;

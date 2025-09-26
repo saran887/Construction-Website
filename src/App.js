@@ -8,7 +8,7 @@ import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Career from './components/Career';
 import Profile from './components/Profile';
-import AuthPage from './components/auth/AuthPage'; // single auth component
+import AuthPage from './components/auth/AuthPage';
 import './App.css';
 
 // Layout component to handle conditional footer rendering
