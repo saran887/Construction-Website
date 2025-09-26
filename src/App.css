@@ -1,41 +1,163 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Center alignment for the app */
-.App {
-  @apply text-center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Logo size and animation */
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-/* Apply animation only if motion is not reduced */
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Hide scrollbar for auth pages */
+body.auth-page {
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
+  background-color: #f9fafb;
+  color: #232323;
+  line-height: 1.6;
+  position: relative;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+.main-content.auth-page {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  height: 100vh;
+}
+
+.main-content.profile-page {
+  background-color: #f5f5f7;
+  min-height: 100vh;
+  padding: 20px 0 60px;
+}
+
+/* Smooth scrolling for the entire site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Container width limits for consistent look */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #f7b733 0%, #fc4a1a 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(252, 74, 26, 0.2);
+}
+
+/* Footer styling */
+.site-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+  padding: 0 15px;
+}
+
+.footer-section h3 {
+  color: #facc15;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.footer-section h3:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #f7b733;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #facc15;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
   }
-}
-
-/* Header section styling */
-.App-header {
-  @apply bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen text-lg;
-}
-
-/* Link styling */
-.App-link {
-  @apply text-blue-400 hover:text-blue-300 transition;
-}
-
-/* Logo spin animation */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  
+  .footer-section {
+    margin-bottom: 20px;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
+import './HomeResponsive.css'; // Import additional responsive styles
 
 const sectors = [
   { title: 'Airports', desc: 'Building gateways to cities and cultures.', icon: '🛫' },

@@ -9,11 +9,33 @@
   height: 400px;
 }
 
+
 .heroImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(70%);
+  display: block;
+  max-width: 100vw;
+  max-height: 400px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 160px;
+    min-height: 100px;
+  }
+  .heroImage {
+    height: auto;
+    max-height: 160px;
+    min-height: 80px;
+  }
+  .image {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    border-radius: 8px;
+  }
 }
 
 .heroOverlay {

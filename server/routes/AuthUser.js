@@ -5,7 +5,17 @@ const bcrypt = require('bcrypt');
 
 // Signup
 router.post('/signup', async (req, res) => {
-  const { email, password } = req.body;
+  const { 
+    email, 
+    password, 
+    firstName, 
+    lastName, 
+    phone, 
+    company, 
+    designation, 
+    address,
+    acceptMarketing
+  } = req.body;
 
   try {
     // Check if user exists
@@ -17,12 +27,25 @@ router.post('/signup', async (req, res) => {
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new LoginUser({ email, password: hashedPassword });
+    const newUser = new LoginUser({ 
+      email, 
+      password: hashedPassword,
+      firstName: firstName || '',
+      lastName: lastName || '',
+      phone: phone || '',
+      company: company || '',
+      designation: designation || '',
+      address: address || '',
+      acceptMarketing: !!acceptMarketing,
+      createdAt: new Date()
+    });
+    
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
 
   } catch (error) {
+    console.error('Signup error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -42,9 +65,23 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    res.status(200).json({ message: 'Login successful' });
+    // Update last login time
+    user.lastLogin = new Date();
+    await user.save();
+
+    // Return user data (excluding password)
+    const userData = {
+      id: user._id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      message: 'Login successful'
+    };
+
+    res.status(200).json(userData);
 
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });

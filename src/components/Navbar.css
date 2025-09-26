@@ -1,10 +1,32 @@
 nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #222;
-  padding: 15px 20px;
+  padding: 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #facc15 !important;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 nav a {
@@ -22,22 +44,212 @@ nav a:hover {
 }
 
 nav a:not(:last-child) {
-  margin-right: 20px;
+  margin-right: 10px;
+}
+
+.login-button {
+  background-color: #facc15;
+  color: #222 !important;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+.login-button:hover {
+  background-color: #fde047;
+  transform: scale(1.05);
+}
+
+/* User Menu Styling */
+.user-menu {
+  position: relative;
+  cursor: pointer;
+  padding: 8px 16px;
+  margin-left: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  background-color: #facc15;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #222;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.user-info:hover {
+  background-color: #fde047;
+}
+
+.user-name {
+  margin-right: 5px;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.user-menu:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1002;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.user-menu:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #e53e3e;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover, 
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    text-align: center;
+    background-color: rgba(34, 34, 34, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  nav a {
-    padding: 10px;
-    display: block;
+  .menu-icon {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .bar.open:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .bar.open:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    padding-top: 80px;
+    background-color: rgba(34, 34, 34, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.5s;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  .nav-links.active {
+    right: 0;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   }
 
   nav a:not(:last-child) {
     margin-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  /* Mobile User Menu Styling */
+  .user-menu {
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+  
+  .user-info {
+    width: 80%;
     margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .dropdown-content {
+    position: relative;
+    width: 80%;
+    box-shadow: none;
+    display: none;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .user-menu:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a,
+  .logout-button {
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dropdown-content a:hover,
+  .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }

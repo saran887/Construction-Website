@@ -1,0 +1,144 @@
+/* Mobile Responsive Styles for Home.module.css */
+
+@media (max-width: 1024px) {
+  .statsBar {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px 15px;
+    margin-top: -40px;
+  }
+  
+  .statBox {
+    padding: 25px 20px;
+    min-width: 160px;
+    flex: 1 1 40%;
+  }
+  
+  .sectorsGrid, .testimonialsGrid, .clientsGrid {
+    padding: 0 15px;
+  }
+  
+  .sectorCard {
+    min-width: 160px;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 450px;
+  }
+  
+  .heroOverlay {
+    padding: 40px 20px;
+    max-width: 100%;
+    width: 85%;
+  }
+  
+  .heroHeading {
+    font-size: 2.2rem;
+  }
+  
+  .heroSubHeading {
+    font-size: 1.15rem;
+  }
+  
+  .ctaButton {
+    padding: 14px 32px;
+    font-size: 1.15rem;
+  }
+  
+  .statBox {
+    flex: 1 1 45%;
+  }
+  
+  .statBox h3 {
+    font-size: 2.2rem;
+  }
+  
+  .sectorsSection, .testimonialsSection, .clientsSection, .contactSection {
+    padding: 40px 15px 30px 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+  }
+  
+  .sectorsSection h2, .testimonialsSection h2, .clientsSection h2, .contactSection h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .sectorCard, .testimonialCard {
+    min-width: 140px;
+    max-width: 100%;
+    flex: 1 1 45%;
+    padding: 25px 20px;
+  }
+  
+  .contactGrid {
+    gap: 30px;
+  }
+  
+  .contactGrid > div {
+    min-width: 220px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 400px;
+  }
+  
+  .heroOverlay {
+    padding: 30px 15px;
+    width: 90%;
+  }
+  
+  .heroHeading {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .heroSubHeading {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .ctaButton {
+    padding: 12px 28px;
+    font-size: 1.05rem;
+  }
+  
+  .statsBar {
+    gap: 15px;
+    margin-top: -30px;
+  }
+  
+  .statBox {
+    padding: 20px 15px;
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  
+  .sectorsGrid, .testimonialsGrid, .clientsGrid {
+    gap: 20px;
+  }
+  
+  .sectorCard, .testimonialCard, .clientCard {
+    padding: 20px 15px;
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+  
+  .testimonialCard {
+    padding: 25px 18px;
+  }
+  
+  .testimonialQuote {
+    font-size: 1rem;
+  }
+  
+  .contactGrid > div {
+    padding: 20px;
+  }
+}
