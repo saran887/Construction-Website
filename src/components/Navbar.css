@@ -1,3 +1,4 @@
+/* --- Desktop Styles --- */
 nav {
   background-color: #222;
   padding: 0;
@@ -59,7 +60,6 @@ nav a:not(:last-child) {
   transform: scale(1.05);
 }
 
-/* User Menu Styling */
 .user-menu {
   position: relative;
   cursor: pointer;
@@ -158,11 +158,20 @@ nav a:not(:last-child) {
   transition: all 0.3s ease-in-out;
 }
 
+/* --- Mobile Styles --- */
 @media (max-width: 768px) {
   nav {
-    background-color: rgba(34, 34, 34, 0.8);
+    background-color: rgba(34, 34, 34, 0.98);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    width: 100vw;
+    left: 0;
+    right: 0;
+    min-width: 0;
+  }
+
+  .navbar-container {
+    padding: 10px 8px;
   }
 
   .menu-icon {
@@ -187,15 +196,16 @@ nav a:not(:last-child) {
     flex-direction: column;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 100vw;
     height: 100vh;
-    padding-top: 80px;
-    background-color: rgba(34, 34, 34, 0.95);
+    padding-top: 60px;
+    background-color: rgba(34, 34, 34, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: 0.5s;
     align-items: flex-start;
-    padding-left: 30px;
+    padding-left: 0;
+    z-index: 2000;
   }
 
   .nav-links.active {
@@ -203,34 +213,47 @@ nav a:not(:last-child) {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
   }
 
-  nav a:not(:last-child) {
-    margin-right: 0;
-    margin-bottom: 20px;
+  nav a {
+    width: 100vw;
+    display: block;
+    font-size: 1.15rem;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin: 0;
+    text-align: left;
   }
-  
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
   /* Mobile User Menu Styling */
   .user-menu {
-    width: 100%;
+    width: 100vw;
     margin-left: 0;
     padding: 0;
   }
   
   .user-info {
-    width: 80%;
+    width: 100vw;
     margin-bottom: 10px;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 18px 24px;
+    font-size: 1.1rem;
+    border-radius: 0;
   }
   
   .dropdown-content {
     position: relative;
-    width: 80%;
+    width: 100vw;
     box-shadow: none;
     display: none;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border: none;
+    border-radius: 0;
     overflow: hidden;
     animation: fadeIn 0.3s ease;
+    background: rgba(34,34,34,0.98);
   }
   
   @keyframes fadeIn {
@@ -246,10 +269,15 @@ nav a:not(:last-child) {
   .logout-button {
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100vw;
+    padding: 18px 24px;
+    font-size: 1.1rem;
+    background: none;
+    text-align: left;
   }
   
   .dropdown-content a:hover,
   .logout-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
   }
 }

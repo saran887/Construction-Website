@@ -7,7 +7,7 @@ const About = () => {
       {/* Hero Section */}
       <div className={styles.hero}>
         <img
-          src="https://source.unsplash.com/1600x900/?construction,building"
+          src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80"
           alt="Construction Banner"
           className={styles.heroImage}
         />
@@ -19,7 +19,7 @@ const About = () => {
       {/* Who We Are */}
       <section className={styles.section}>
         <img
-          src="https://source.unsplash.com/500x400/?company,office"y
+          src="https://images.unsplash.com/photo-1503389152951-9c3d0456e86c?auto=format&fit=crop&w=600&q=80"
           alt="Company"
           className={styles.image}
         />
@@ -75,7 +75,7 @@ const About = () => {
           </ul>
         </div>
         <img
-          src="https://soPPSe.unsplash.com/500x400/?values,teamwork"
+          src="https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=crop&w=600&q=80"
           alt="Core Values"
           className={styles.image}
         />
@@ -86,17 +86,17 @@ const About = () => {
         <h2 className={styles.heading}>Meet Our Team</h2>
         <div className={styles.teamGrid}>
           <div className={styles.teamMember}>
-            <img src="https://soPPSe.unsplash.com/200x200/?man,portrait" alt="CEO" className={styles.teamImage} />
+            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=200&q=80" alt="CEO" className={styles.teamImage} />
             <h3>John Doe</h3>
             <p>CEO</p>
           </div>
           <div className={styles.teamMember}>
-            <img src="https://soPPSe.unsplash.com/200x200/?woman,portrait" alt="COO" className={styles.teamImage} />
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="COO" className={styles.teamImage} />
             <h3>Jane Smith</h3>
             <p>COO</p>
           </div>
           <div className={styles.teamMember}>
-            <img src="https://soPPSe.unsplash.com/200x200/?businessman" alt="CTO" className={styles.teamImage} />
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80" alt="CTO" className={styles.teamImage} />
             <h3>Michael Lee</h3>
             <p>CTO</p>
           </div>
@@ -114,4 +114,3 @@ const About = () => {
 };
 
 export default About;
-  
